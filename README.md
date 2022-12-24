@@ -2,14 +2,14 @@
 A fuzzy logic system implementation in C++.
 
 ## Requirements
-To compile this project you will need Makefile, clang++ and bear. However, The FuzzyLogic files does not have any dependencies, so you can copy and paste them in your project. If you put them in different directories, you must indicate the path of the FuzzyLogic.hpp in the include of FuzzyLogic.cpp
+To compile this project you will need Makefile, clang++ and bear, and it uses C++17. However, The FuzzyLogic files does not have any dependencies, so you can copy and paste them in your project. If you put them in different directories, you must indicate the path of the FuzzyLogic.hpp in the include of FuzzyLogic.cpp
 
 ## Features
 - Overloading of the operators "&&", "||", ">>", "!", so you can write the fuzzy rules in a natural way. The rules are of the form "(BODY) >> HEAD", where the head is the identifier of a fuzzy set and BODY is an arbitrary logical expression between fuzzy set identifiers. It is important to note that the BODY must be between parenthesis because C++ does not allow me to change the priority of the operator ">>" to be the lowest.
 - Transitive fuzzy rules. This means that you can have for example the following 3 fuzzy rules:
 	- a -> b
 	- b -> c
-	- c -> d
+	- c -> d <br>
 The fuzzy logic system is able to perform a topological sort of the rules so they are computed in the correct order. This means that you must be aware that there can't be any cycles in the rules. The dependency between the fuzzy sets must be able to be represented as a Directed Acyclyc Graph (DAG).
 
 ## Compilation
