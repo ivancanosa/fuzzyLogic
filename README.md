@@ -10,7 +10,7 @@ To compile this project you will need Makefile, clang++ and bear. However, The F
 	- a -> b
 	- b -> c
 	- c -> d
-	The fuzzy logic system is able to perform a topological sort of the rules so they are computed in the correct order. This means that you must be aware that there can't be any cycles in the rules. The dependency between the fuzzy sets must be able to be represented as a Directed Acyclyc Graph (DAG).
+The fuzzy logic system is able to perform a topological sort of the rules so they are computed in the correct order. This means that you must be aware that there can't be any cycles in the rules. The dependency between the fuzzy sets must be able to be represented as a Directed Acyclyc Graph (DAG).
 
 ## Compilation
 - make test: Compile and run the tests
