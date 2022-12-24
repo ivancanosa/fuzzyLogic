@@ -64,3 +64,4 @@ The fuzzy logic system is able to perform a topological sort of the rules so the
 - The functions that create membership functions over the range [0-1] have the limitation that all the functions have the same area. An improvment is to be able to tell the functions which membership functions should have more are than the others.
 - Serialization to/from std::string.
 - The logical expressions are represented as a tree where the memory allocation is in random places in the heap. An optimization would be to compact all of that on a single vector, so all logical expressions and logic rules are on the same cache line, making the inference faster without cache misses.
+- Add the capability to work as a fuzzy production system with a working memory.
