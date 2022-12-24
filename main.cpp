@@ -6,7 +6,7 @@
  * Input Sets:
  * 		-Health: Actual health of the knight in the range [0-1]
  * 		-Melee damage: Melee damage of the knight
- * 		-Range damage: Melee damage of the knight
+ * 		-Range damage: Long distance damage of the knight
  * Output Sets:
  * 		- Retreat: Action for the knight to retreat from battle
  * 		- Heal: Action for the knight to heal himself.
@@ -18,7 +18,7 @@ void exampleAgentKnightInVideogame() {
     // Create a fuzzy system
     FuzzySystem fs;
     // Define 3 membership trapezoidal functions in the range [0-1].
-	// They will be low, medium, and high respectively in their position in the vector
+	// They will be low, medium, and high respectively by their position in the return vector
     auto mfVector3 = createTrapezoidalFuzzySets(3, 1.);
 
     // Create the input fuzzy sets
@@ -58,7 +58,7 @@ void exampleAgentKnightInVideogame() {
     float meleDamage  = 0.7; // Knight's melee damage
     float rangeDamage = 0.3; // Knight's range damage
 
-	// Insert the vales in the input fuzzy sets. 
+	// Insert the values in the input fuzzy sets. 
     setFuzzyInput(fs, healthSet, health);
     setFuzzyInput(fs, meleDamageSet, meleDamage);
     setFuzzyInput(fs, rangeDamageSet, rangeDamage);
