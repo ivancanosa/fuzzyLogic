@@ -1,5 +1,5 @@
 # Fuzzy Logic System
-A fuzzy logic system implementation in C++17.
+A fuzzy logic system implementation in C++17. The objective of this project is to create a flexible, easy to use interface so it can be used without problems in any project.
 
 ## Requirements
 To compile this project you will need Makefile, clang++ and bear, and it uses C++17. However, The FuzzyLogic files does not have any dependencies, so you can copy and paste them in your project. If you put them in different directories, you must indicate the path of the FuzzyLogic.hpp in the include of FuzzyLogic.cpp
@@ -61,5 +61,6 @@ The fuzzy logic system is able to perform a topological sort of the rules so the
 
 ## TODO
 - Change the code so it is possible to compute in parallel multiple fuzzy inferences with the same rules set.
+- The functions that create membership functions over the range [0-1] have the limitation that all the functions have the same area. An improvment is to be able to tell the functions which membership functions should have more are than the others.
 - Serialization to/from std::string.
 - The logical expressions are represented as a tree where the memory allocation is in random places in the heap. An optimization would be to compact all of that on a single vector, so all logical expressions and logic rules are on the same cache line, making the inference faster without cache misses.
