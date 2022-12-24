@@ -1,5 +1,5 @@
 # Logic System
-A fuzzy logic system implementation in C++.
+A fuzzy logic system implementation in C++17.
 
 ## Requirements
 To compile this project you will need Makefile, clang++ and bear, and it uses C++17. However, The FuzzyLogic files does not have any dependencies, so you can copy and paste them in your project. If you put them in different directories, you must indicate the path of the FuzzyLogic.hpp in the include of FuzzyLogic.cpp
