@@ -1,4 +1,4 @@
-# Logic System
+# Fuzzy Logic System
 A fuzzy logic system implementation in C++17.
 
 ## Requirements
