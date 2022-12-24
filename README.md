@@ -60,3 +60,4 @@ The fuzzy logic system is able to perform a topological sort of the rules so the
 
 ## TODO
 - Change the code so it is possible to compute in parallel multiple fuzzy inferences with the same rules set.
+- Serialization to/from std::string.
