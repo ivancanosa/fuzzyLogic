@@ -125,6 +125,11 @@ std::vector<FuzzySetId> fuzzySetsSort(FuzzySystem& fs) {
 }
 
 void fuzzyRulesTopologicalSort(FuzzySystem& fs) {
+	//Initialize all the membership values of the sets to 0
+	for(int i=0; i<fs.fuzzyMembershipValues.size(); i++){
+		fs.fuzzyMembershipValues[i] = 0.;
+	}
+
     auto sortedSets = fuzzySetsSort(fs);
     // Create a map from fuzzy set id to position in the sorted sets vector
     std::vector<int> setPositions(sortedSets.size());

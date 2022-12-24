@@ -1,9 +1,24 @@
 #include "FuzzyLogic.hpp"
 
+
+/* This example simulates the AI of a knight in a videogame. For each input/output,
+ * it creates 3 sets (low, medium, high) to represent it.
+ * Input Sets:
+ * 		-Health: Actual health of the knight in the range [0-1]
+ * 		-Melee damage: Melee damage of the knight
+ * 		-Range damage: Melee damage of the knight
+ * Output Sets:
+ * 		- Retreat: Action for the knight to retreat from battle
+ * 		- Heal: Action for the knight to heal himself.
+ * 		- Attack melee: Action for the knight to attack at melee range
+ * 		- Attack range: Action for the knight to attack at long distance 
+ */
+
 void exampleAgentKnightInVideogame() {
     // Create a fuzzy system
     FuzzySystem fs;
-    // Define the membership functions. The elements are low, medium and high
+    // Define 3 membership trapezoidal functions in the range [0-1].
+	// They will be low, medium, and high respectively in their position in the vector
     auto mfVector3 = createTrapezoidalFuzzySets(3, 1.);
 
     // Create the input fuzzy sets
@@ -17,7 +32,8 @@ void exampleAgentKnightInVideogame() {
     auto attackRangeSet = addFuzzySet(fs, mfVector3);
     auto attackMeleeSet = addFuzzySet(fs, mfVector3);
 
-    // Definition of the rules
+    // Definition of the rules. You must be aware that every fuzzy set must be
+	// present at least once in some fuzzy rule.
 	fuzzySystemAddRule(fs, healthSet[0] >> healSet[2]);
 	fuzzySystemAddRule(fs, healthSet[1] >> healSet[1]);
 	fuzzySystemAddRule(fs, healthSet[2] >> healSet[0]);
@@ -42,13 +58,15 @@ void exampleAgentKnightInVideogame() {
     float meleDamage  = 0.7; // Knight's melee damage
     float rangeDamage = 0.3; // Knight's range damage
 
+	// Insert the vales in the input fuzzy sets. 
     setFuzzyInput(fs, healthSet, health);
     setFuzzyInput(fs, meleDamageSet, meleDamage);
     setFuzzyInput(fs, rangeDamageSet, rangeDamage);
 
+	// Compute the membership values for the output sets
     computeFuzzyRules(fs);
 
-    // Defuzzify the output fuzzy sets to get the action values
+    // Defuzzify the output fuzzy sets to get the crips action values
     float retreatActionValue     = defuzzify(fs, retreatSet);
     float healActionValue        = defuzzify(fs, healSet);
     float attackRangeActionValue = defuzzify(fs, attackRangeSet);
