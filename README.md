@@ -5,7 +5,8 @@ A fuzzy logic system implementation in C++17.
 To compile this project you will need Makefile, clang++ and bear, and it uses C++17. However, The FuzzyLogic files does not have any dependencies, so you can copy and paste them in your project. If you put them in different directories, you must indicate the path of the FuzzyLogic.hpp in the include of FuzzyLogic.cpp
 
 ## Features
-- Overloading of the operators "&&", "||", ">>", "!", so you can write the fuzzy rules in a natural way. The rules are of the form "(BODY) >> HEAD", where the head is the identifier of a fuzzy set and BODY is an arbitrary logical expression between fuzzy set identifiers. It is important to note that the BODY must be between parenthesis because C++ does not allow me to change the priority of the operator ">>" to be the lowest.
+- Arbitrary logical expressions. You are able to use the operators NOT, AND, OR, to build any arbitrary logical expression in the body of the rules.
+- Overloading of the operators "!", "&&", "||", ">>", so you can write the fuzzy rules in a natural way. The rules are of the form "(BODY) >> HEAD", where the HEAD must the identifier of a fuzzy set and BODY is an arbitrary logical expression of fuzzy set identifiers. It is important to note that the BODY must be between parenthesis because C++ does not allow me to change the priority of the operator ">>" (the IF operator) to be the lowest.
 - Transitive fuzzy rules. This means that you can have for example the following 3 fuzzy rules:
 	- a -> b
 	- b -> c
@@ -61,3 +62,4 @@ The fuzzy logic system is able to perform a topological sort of the rules so the
 ## TODO
 - Change the code so it is possible to compute in parallel multiple fuzzy inferences with the same rules set.
 - Serialization to/from std::string.
+- The logical expressions are represented as a tree where the memory allocation is in random places in the heap. An optimization would be to compact all of that on a single vector, so all logical expressions and logic rules are on the same cache line, making the inference faster without cache misses.
