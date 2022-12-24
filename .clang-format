@@ -1,0 +1,37 @@
+# This is a comment
+
+Language: Cpp
+BasedOnStyle:  LLVM
+
+# Indentation style
+IndentWidth: 4
+UseTab: Never
+
+# Line wrapping
+ColumnLimit: 80
+
+# Bracket style
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+
+# Macros style
+AlignConsecutiveMacros: AcrossEmptyLines
+
+# Other formatting options
+AllowShortFunctionsOnASingleLine: None
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+DerivePointerAlignment: false
+IndentCaseLabels: false
+IndentWrappedFunctionNames: false
+PointerAlignment: Left
+SpaceAfterTemplateKeyword: false
+AlignConsecutiveAssignments: true
