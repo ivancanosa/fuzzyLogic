@@ -1,8 +1,9 @@
 # Fuzzy Logic System
-A fuzzy logic system implementation in C++17. The objective of this project is to create a flexible, easy to use interface so it can be used without problems in any project.
+A fuzzy logic system implementation in C++17. The objective of this project is to create a flexible, easy to use interface so it can be used without much boilerplate.
 
 ## Requirements
-To compile this project you will need Makefile, clang++ and bear, and it uses C++17. However, The FuzzyLogic files does not have any dependencies, so you can copy and paste them in your project. If you put them in different directories, you must indicate the path of the FuzzyLogic.hpp in the include of FuzzyLogic.cpp
+- CMake +3.10
+- A C++17 compiler
 
 ## Features
 - Arbitrary logical expressions. You are able to use the operators NOT, AND, OR, to build any arbitrary logical expression in the body of the rules.
