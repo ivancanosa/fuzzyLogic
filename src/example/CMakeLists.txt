@@ -1,0 +1,2 @@
+add_executable(FuzzyLogicExample fuzzyLogicExample.cpp)
+target_link_libraries(FuzzyLogicExample fuzzyLogic)

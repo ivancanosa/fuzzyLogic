@@ -14,15 +14,29 @@ To compile this project you will need Makefile, clang++ and bear, and it uses C+
 The fuzzy logic system is able to perform a topological sort of the rules so they are computed in the correct order. This means that you must be aware that there can't be any cycles in the rules. The dependency between the fuzzy sets must be able to be represented as a Directed Acyclyc Graph (DAG).
 
 ## Compilation
-- make test: Compile and run the tests
-- make run: Compile and run the main.cpp file, which contains an example of use of the logic system for an agent in a videogame.
+```bash
+# Create and navigate to the build directory
+mkdir build
+cd build
+
+# Run CMake to generate build files
+cmake ../src
+
+# Compile the project
+make
+
+# Run tests
+ctest
+
+# Run simple example
+./example/FuzzyLogicExample
+```
 
 ## Files
-- FuzzyLogic.hpp: Header for the fuzzy logic system with all data types and function prototypes.
-- FuzzyLogic.cpp: Implementation of the fuzzy logic system.
-- main.cpp: An example of use of the fuzzy logic system for an agent in a videogame. 
-- test.cpp: The tests that checks if the fuzzy logic system works.
-- Makefile: Contains the commands required to compile the project.
+- src/FuzzyLogic.hpp: Header for the fuzzy logic system with all data types and function prototypes.
+- src/FuzzyLogic.cpp: Implementation of the fuzzy logic system.
+- src/example/fuzzyLogicExample.cpp: An example of use of the fuzzy logic system for an agent in a videogame. 
+- src/test/test.cpp: The tests that checks if the fuzzy logic system works.
 
 ## Data Types
 - FuzzySetId: an unsigned integer representing a fuzzy set in the system.
