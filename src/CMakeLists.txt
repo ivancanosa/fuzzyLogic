@@ -15,6 +15,7 @@ target_include_directories(fuzzyLogic PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
+add_library(fuzzyLogic::fuzzyLogic ALIAS fuzzyLogic)
 
 add_subdirectory(test)
 add_subdirectory(example)
