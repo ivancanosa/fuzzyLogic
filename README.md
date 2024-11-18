@@ -14,6 +14,22 @@ A fuzzy logic system implementation in C++17. The objective of this project is t
 	- c -> d <br>
 The fuzzy logic system is able to perform a topological sort of the rules so they are computed in the correct order. This means that you must be aware that there can't be any cycles in the rules. The dependency between the fuzzy sets must be able to be represented as a Directed Acyclyc Graph (DAG).
 
+## How to use
+It is trivial to use it in any project if you use CMake. All you have to do is to fetch and link it to your target. For example:
+```bash
+FetchContent_Declare(
+  fuzzyLogic
+  GIT_REPOSITORY https://github.com/ivancanosa/fuzzyLogic
+  GIT_TAG        main
+  GIT_PROGRESS   TRUE
+  SOURCE_SUBDIR  src
+)
+FetchContent_MakeAvailable(fuzzyLogic)
+
+add_executable(ExecutableTarget main.cpp)
+target_link_libraries(ExecutableTarget fuzzyLogic::fuzzyLogic)
+```
+
 ## Compilation
 ```bash
 # Create and navigate to the build directory
