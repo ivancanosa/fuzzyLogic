@@ -1,0 +1,32 @@
+name: test windows
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Log software version
+      run: |
+        cmake --version
+        vswhere -latest -property displayName
+
+    - name: Configure CMake
+      run: |
+        cmake -S src -B build -G "Visual Studio 17 2022" 
+
+    - name: Build Project
+      run: |
+        cmake --build build --config Debug 
+
+    - name: Run Tests
+      run: |
+        ctest --test-dir build -C Debug

@@ -1,16 +1,18 @@
 cmake_minimum_required(VERSION 3.10)
 project(FuzzyLogic VERSION 1.0 LANGUAGES CXX)
 
+option(BUILD_SHARED_LIBS "Build the shared library" OFF)
+
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 include(CTest) 
 enable_testing()
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 
-add_library(fuzzyLogic SHARED FuzzyLogic.cpp)
+add_library(fuzzyLogic FuzzyLogic.cpp)
 target_include_directories(fuzzyLogic PUBLIC 
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"

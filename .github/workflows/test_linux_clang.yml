@@ -1,0 +1,32 @@
+name: test linux clang
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Log software version
+      run: |
+        cmake --version
+        clang --version
+
+    - name: Configure CMake with Clang
+      run: |
+        cmake -S src -B build -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+
+    - name: Build Project
+      run: |
+        cmake --build build
+
+    - name: Run Tests
+      run: |
+        ctest --test-dir build
